@@ -1,0 +1,4 @@
+from multiproccessing import Pool
+
+def main():
+    print('hello world')

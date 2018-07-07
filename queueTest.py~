@@ -1,0 +1,15 @@
+from billiard import Pool, Queue
+import os
+
+def f(q,x):
+    q.put("process:{} value:{}".format(os.getpid,x))
+
+def main():
+    q = Queue
+    x=[1,2,3,4,5]
+    p=Pool(5)
+    p.map(f,(q,x))
+    for i in x:
+        print(q.get())
+
+main()

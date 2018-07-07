@@ -1,0 +1,18 @@
+from billiard import Process,Queue
+import time
+import math
+
+def signal(q,valueArray):
+    while True:
+        output = 0
+        for f in valueArray:
+            output = output+ math.sin(f*time.clock())
+        q.put("signal : {}".format(output))
+
+def main():
+    q=Queue()
+    testSignal = Process(target=signal,args=(q,[1]))
+    testSignal.start()
+    while True:
+        print(q.get())
+main()

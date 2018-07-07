@@ -1,0 +1,20 @@
+from billard import Process
+from time import Sleep
+
+def f(x):
+    Sleep(100-x)
+    print("this is thread {}".format(x))
+
+def main():
+    ProccessList=[]
+    for i in range(0,100):
+        ProcessList.append(Process(target=f,args=i))
+    for p in ProcessList:
+        p.start()
+        p.join()
+    print("main finished")
+
+main()
+
+                           
+                        
